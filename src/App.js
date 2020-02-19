@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import triviaReducer from './reducers';
 
 import TodayInHistoryList from './containers/TodayInHistoryListContainer';
+import SavedTriviaList from './containers/SavedTriviaListContainer';
 import Nav from './components/Nav';
 
 const store = createStore(triviaReducer);
@@ -30,7 +31,7 @@ function App() {
 
           </Route>
           <Route path="/saved">
-
+            <SavedTriviaList />
           </Route>
         </Switch>
       </Router>
