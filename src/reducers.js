@@ -1,16 +1,21 @@
-export const ADD_TRIVIA = 'ADD_TRIVIA';
-export const DEL_TRIVIA = 'DEL_TRIVIA';
+import {ADD_TRIVIA, DEL_TRIVIA} from './actions';
+const defaultState = Object.keys(window.localStorage).map(item => window.localStorage.getItem(item));
 
-export function actionAddTrivia(trivia) {
-    return {
-        type: ADD_TRIVIA,
-        payload: trivia
-    }
-}
+export default function triviaReducer(state=defaultState, action) {
+    const newState = [...state];
 
-export function actionDelTrivia(id) {
-    return {
-        type: DEL_TRIVIA,
-        payload: id
+    switch(action.type) {
+        case ADD_TRIVIA:
+            newState.push(action.payload);
+            window.localStorage.setItem(state.length, action.payload);
+            break;
+        case DEL_TRIVIA:
+            newState.splice(action.payload, 1);
+            window.localStorage.removeItem(action.payload);
+            break;
+        default:
+            break;
     }
+
+    return newState;
 }
