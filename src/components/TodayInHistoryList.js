@@ -1,5 +1,4 @@
 import React from 'react';
-import TodayItem from './TodayItem';
 import axios from 'axios';
 
 export default class TodayInHistoryList extends React.Component {
@@ -20,19 +19,20 @@ export default class TodayInHistoryList extends React.Component {
 
     render() {
         let {events, births, deaths} = this.state;
+        let {handleSelect} = this.props
         return (
             <div>
                 <h2>Events</h2>
                 <ul>
-                    {events.map((item, i) => <li key={i + "A"} onClick={this.handleSelect}>{item}</li>)}
+                    {events.map((item, i) => <li key={i + "A"} onClick={() => handleSelect(item)}>{item}</li>)}
                 </ul>
                 <h2>Births</h2>
                 <ul>
-                    {births.map((item, i) => <li key={i + "B"} onClick={this.handleSelect}>{item}</li>)}
+                    {births.map((item, i) => <li key={i + "B"} onClick={() => handleSelect(item)}>{item}</li>)}
                 </ul>
                 <h2>Deaths</h2>
                 <ul>
-                    {deaths.map((item, i) => <li key={i + "C"} onClick={this.handleSelect}>{item}</li>)}
+                    {deaths.map((item, i) => <li key={i + "C"} onClick={() => handleSelect(item)}>{item}</li>)}
                 </ul>
             </div>
         );
