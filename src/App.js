@@ -8,6 +8,7 @@ import triviaReducer from './reducers';
 import TodayInHistoryList from './containers/TodayInHistoryListContainer';
 import SavedTriviaList from './containers/SavedTriviaListContainer';
 import RecentSportsList from './containers/RecentSportsListContainer';
+import RecentMediaList from './containers/RecentMediaListContainer';
 import Nav from './components/Nav';
 
 const store = createStore(triviaReducer);
@@ -29,7 +30,7 @@ function App() {
             <RecentSportsList />
           </Route>
           <Route path="/media">
-
+            <RecentMediaList />
           </Route>
           <Route path="/saved">
             <SavedTriviaList />

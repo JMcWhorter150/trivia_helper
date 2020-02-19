@@ -13,21 +13,37 @@ export default class RecentSports extends React.Component {
 
     async componentDidMount() {
         await this._getNewSports();
+        await this._getSportsOnThisDay();
     }
 
     render() {
         const {handleSelect} = this.props;
+
         const currentNewsList = this.state.currentNews.map((item, i) => (
             <li key={i + "E"}>
                 <button onClick={() => handleSelect(item.title)}>Save</button>
                 <a href={item.url} target="_blank"> {item.title}</a>
             </li>
-        ))
+        ));
+
+        const currentSports = this.state.sportsTrivia.map((item, i) => (
+            <li key={i + "F"}>
+                <button onClick={() => handleSelect(item)}>Save</button>
+                {item}
+            </li>
+        ));
 
         return (
-            <ul>
-                {currentNewsList}
-            </ul>
+            <div>
+                <h2>Current Sports Events</h2>
+                <ul>
+                    {currentNewsList}
+                </ul>
+                <h2>Sports On This Day</h2>
+                <ul>
+                    {currentSports}
+                </ul>
+            </div>
         )
     }
 
@@ -36,6 +52,14 @@ export default class RecentSports extends React.Component {
         const result = await axios.get(url);
         this.setState({
             currentNews: result.data.articles
+        })
+    }
+
+    _getSportsOnThisDay = async () => {
+        const url = `https://api.apify.com/v2/actor-tasks/J5K8SwHCw5kWjSdPb/runs/last/dataset/items?token=fkp2JJtBYnJvTCZWCDLuxDKRh`;
+        const result = await axios.get(url);
+        this.setState({
+            sportsTrivia: result.data[0].linkData
         })
     }
 }
