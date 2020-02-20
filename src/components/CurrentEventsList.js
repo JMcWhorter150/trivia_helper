@@ -36,7 +36,7 @@ export default class RecentSports extends React.Component {
             </li>
         )) : "";
 
-        const topicHeading = topic || "Select a topic";
+        const topicHeading = topic === "sportsNews" ? "Sports" : topic === "currentNews" ? "U.S." : ""; // converts sportsNews to Sports and currentNews to U.S.
 
         return (
             <div>
@@ -47,7 +47,7 @@ export default class RecentSports extends React.Component {
                     <option value="sportsNews">Sports</option>
                 </select>
 
-                <h2>{topic}</h2>
+                <h2>{topicHeading}</h2>
                 <ul>
                     {newsList}
                 </ul>
