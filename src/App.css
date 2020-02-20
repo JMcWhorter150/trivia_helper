@@ -7,7 +7,7 @@
 
 html {
   margin-left: 128px;
-  background-color: hsl(0, 0%, 92%);
+  background-color: hsl(0, 0%, 96%);
   color: hsl(0, 15%, 6%);
 }
 
@@ -34,50 +34,11 @@ html {
 }
 
 #nav > a:hover {
-  color: white;
+  border-left: 4px solid hsl(0, 0%, 96%);
 }
 
 #nav > a::selection {
   color: white;
-}
-
-#home, #saved, #today, #news {
-  margin-left: 36px;
-  margin-top: 16px;
-}
-
-#today {
-  list-style: none;
-  font-size: 14px;
-}
-
-#today > ul {
-  padding: 0;
-}
-
-#today > ul > li {
-  display: flex;
-  margin: 8px 8px 8px 0;
-  padding: 2px 0;
-  line-height: 2;
-  align-items: baseline;
-}
-
-p {
-  margin: 0;
-}
-
-li button {
-  background-color: hsl(252, 8%, 90%);
-  border-style: none;
-  border-radius: 1px;
-  height: 20px;
-  font-size: 12px;
-  letter-spacing: 1px;
-}
-
-li button:hover {
-  background-color: white;
 }
 
 #home {
@@ -97,4 +58,58 @@ li button:hover {
 .pictureFrame > img {
   height: 100%;
   width: auto;
+}
+
+#home, #saved, #today, #news {
+  margin-left: 36px;
+  margin-top: 16px;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+}
+
+ul > li {
+  display: flex;
+  margin: 8px 8px 8px 0;
+  padding: 2px 0;
+  line-height: 2;
+  align-items: baseline;
+}
+
+li > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li > a:hover {
+  background-color: hsl(252, 8%, 89%);
+}
+
+li > p, li > a {
+  margin-left: 2px;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  background-color: hsl(252, 8%, 90%);
+  border-style: none;
+  border-radius: 1px;
+  height: 20px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  background-color: white;
+}
+
+li > button:focus {
+  border-color: transparent;
+  outline: none;
 }
