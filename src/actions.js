@@ -8,9 +8,9 @@ export function actionAddTrivia(trivia) {
     }
 }
 
-export function actionDelTrivia(id) {
+export function actionDelTrivia(id, text) {
     return {
         type: DEL_TRIVIA,
-        payload: id
+        payload: {id, text}
     }
 }

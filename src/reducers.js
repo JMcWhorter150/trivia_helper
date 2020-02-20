@@ -7,11 +7,11 @@ export default function triviaReducer(state=defaultState, action) {
     switch(action.type) {
         case ADD_TRIVIA:
             newState.push(action.payload);
-            window.localStorage.setItem(state.length, action.payload);
+            window.localStorage.setItem(action.payload, action.payload);
             break;
         case DEL_TRIVIA:
-            newState.splice(action.payload, 1);
-            window.localStorage.removeItem(action.payload);
+            newState.splice(action.payload.id, 1);
+            window.localStorage.removeItem(action.payload.text);
             break;
         default:
             break;

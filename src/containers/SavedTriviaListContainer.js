@@ -10,7 +10,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        handleDelete: (id) => dispatch(actionDelTrivia(id))
+        handleDelete: (id, text) => dispatch(actionDelTrivia(id, text))
     }
 }
 

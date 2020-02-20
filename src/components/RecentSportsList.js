@@ -22,7 +22,7 @@ export default class RecentSports extends React.Component {
         const currentNewsList = this.state.currentNews.map((item, i) => (
             <li key={i + "E"}>
                 <button onClick={() => handleSelect(item.title)}>Save</button>
-                <a href={item.url} target="_blank"> {item.title}</a>
+                <a href={item.url} rel='noopener noreferrer'> {item.title}</a>
             </li>
         ));
 

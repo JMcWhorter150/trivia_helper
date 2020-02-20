@@ -23,9 +23,7 @@ function App() {
           <Route exact path="/">
 
           </Route>
-          <Route path="/today">
-            <TodayInHistoryList />
-          </Route>
+          <Route path="/today" component={TodayInHistoryList} />
           <Route path="/sports">
             <RecentSportsList />
           </Route>
