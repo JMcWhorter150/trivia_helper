@@ -1,5 +1,5 @@
 import {ADD_TRIVIA, DEL_TRIVIA} from './actions';
-const defaultState = Object.keys(window.localStorage).map(item => window.localStorage.getItem(item));
+const defaultState = Object.keys(window.localStorage).map(item => window.localStorage.getItem(item)).sort();
 
 export default function triviaReducer(state=defaultState, action) {
     const newState = [...state];
