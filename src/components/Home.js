@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Home() {
     return (
-        <div>
+        <div id="home">
             <div className="pictureFrame">
                 <img src={process.env.PUBLIC_URL + '/study.png'} alt="logo" />
             </div>

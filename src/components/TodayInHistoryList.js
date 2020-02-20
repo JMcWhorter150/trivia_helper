@@ -47,7 +47,7 @@ export default class TodayInHistoryList extends React.Component {
         let topicHeader = topic && topic !== "--" ? topic : "";
 
         return (
-            <div>
+            <div id="today">
                 <label htmlFor="triviaTopic">Select a trivia topic:</label>
                 <select onChange={event => this._handleToggle(event.target.value)} id="triviaTopic">
                     {optionsList}

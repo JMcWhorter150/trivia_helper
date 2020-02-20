@@ -39,7 +39,7 @@ export default class RecentSports extends React.Component {
         const topicHeading = topic === "sportsNews" ? "Sports" : topic === "currentNews" ? "U.S." : ""; // converts sportsNews to Sports and currentNews to U.S.
 
         return (
-            <div>
+            <div id='news'>
                 <label htmlFor="newsTopic">Select News:</label>
                 <select onChange={event => this._handleToggle(event.target.value)} id="newsTopic">
                     <option value="">--</option>
