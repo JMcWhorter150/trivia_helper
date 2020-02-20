@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import { actionAddTrivia } from '../actions';
-import RecentSports from '../components/RecentSportsList';
+import CurrentEventsList from '../components/CurrentEventsList';
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -9,4 +9,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 const reduxConnector = connect(null, mapDispatchToProps);
-export default reduxConnector(RecentSports);
+export default reduxConnector(CurrentEventsList);
