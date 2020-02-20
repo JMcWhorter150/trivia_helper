@@ -42,7 +42,7 @@ export default class TodayInHistoryList extends React.Component {
         // console.log(this.props);
         let {topic} = this.state;
         let {handleSelect} = this.props;
-        let topicList = topic && topic !== "--" ? this.state[topic.toLowerCase()].map((item, i) => <li key={i + "A"} onClick={() => handleSelect(item)}>{item}</li>) : "Select a Topic";
+        let topicList = topic && topic !== "--" ? this.state[topic.toLowerCase()].map((item, i) => <li key={i + "A"} onClick={() => handleSelect(item)}>{item}</li>) : "";
         let optionsList = ['--', 'Events', 'Births', 'Deaths', 'Film', 'Music', 'Sports'].map((text, i) => <option value={text} key={i+"C"}>{text}</option>); // update if new trivia topics are added
         let topicHeader = topic && topic !== "--" ? topic : "";
 
