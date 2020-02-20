@@ -1,8 +1,8 @@
-import {ADD_TRIVIA, DEL_TRIVIA} from './actions';
+import {ADD_TRIVIA, DEL_TRIVIA, RESET_TRIVIA} from './actions';
 const defaultState = Object.keys(window.localStorage).map(item => window.localStorage.getItem(item)).sort();
 
 export default function triviaReducer(state=defaultState, action) {
-    const newState = [...state];
+    let newState = [...state];
 
     switch(action.type) {
         case ADD_TRIVIA:
@@ -12,6 +12,10 @@ export default function triviaReducer(state=defaultState, action) {
         case DEL_TRIVIA:
             newState.splice(action.payload.id, 1);
             window.localStorage.removeItem(action.payload.text);
+            break;
+        case RESET_TRIVIA:
+            newState = [];
+            window.localStorage.clear();
             break;
         default:
             break;
