@@ -20,6 +20,7 @@ export default class TodayInHistoryList extends React.Component {
 
     async componentDidMount() {
         if (!this.state.hasLoaded) { // grabs all the data the first time the page loads
+            console.log('grabbing buncha stuff');
             const todaysData = await this._grabEventsBirthsDeaths();
             const newSports = await this._getSportsOnThisDay();
             const newFilm = await this._getFilmEvents();

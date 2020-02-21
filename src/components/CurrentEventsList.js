@@ -15,6 +15,7 @@ export default class RecentSports extends React.Component {
 
     async componentDidMount() {
         if (!this.state.hasLoaded) {
+            console.log('sending news fetch requests');
             const newSports = await this._getSportsNews();
             const newNews = await this._getCurrentNews();
             this.setState({
