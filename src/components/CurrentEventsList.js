@@ -24,7 +24,7 @@ export default class RecentSports extends React.Component {
         const {handleSelect} = this.props;
         const {topic} = this.state;
         const newsList = topic ? this.props[topic].map((item, i) => (
-            <li key={i + "E"}>
+            <li key={i + "E"} className="trivia">
                 <button onClick={() => handleSelect(item.title)}>Save</button>
                 <a href={item.url} rel='noopener noreferrer' target="_blank"> {item.title}</a>
             </li>
@@ -39,15 +39,12 @@ export default class RecentSports extends React.Component {
                 </li>
             )});
 
-        const topicHeading = topic === "sportsNews" ? "Sports" : topic === "currentNews" ? "U.S." : ""; // converts sportsNews to Sports and currentNews to U.S.
-
         return (
             <div id="news">
                 <ul className="radioToolbar">
                     {optionsList}
                 </ul>
 
-                <h2>{topicHeading}</h2>
                 <ul>
                     {newsList}
                 </ul>

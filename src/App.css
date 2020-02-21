@@ -52,7 +52,7 @@ html {
   filter: brightness(0) invert(1);
 }
 
-#home, #saved, #today, #news {
+#home , #saved, #today, #news {
   margin-left: 36px;
   margin-top: 16px;
 }
@@ -98,6 +98,7 @@ html {
   display: inline-block;
   padding: 5px 10px;
   font-size: 16px;
+  font-weight: 500;
   background-color: hsl(252, 5%, 90%);
   border-radius: 2px;
 }
@@ -121,12 +122,23 @@ ul {
   font-size: 14px;
 }
 
-ul > li {
+.trivia {
   display: flex;
-  margin: 8px 8px 8px 0;
-  padding: 2px 0;
+  margin: 8px 8px 8px -8px;
+  padding: 2px 4px;
+  border-radius: 1px;
   line-height: 2;
   align-items: baseline;
+}
+
+.trivia:nth-child(even){
+  background-color: hsl(252, 5%, 99%);
+}​
+
+
+
+li > p, li > a {
+  margin-left: 8px;
 }
 
 li > a {
@@ -135,11 +147,8 @@ li > a {
 }
 
 li > a:hover {
-  background-color: hsl(252, 60%, 90%);
-}
-
-li > p, li > a {
-  margin-left: 2px;
+  /* background-color: hsl(252, 60%, 90%); */
+  text-decoration: underline;
 }
 
 p {

@@ -21,7 +21,7 @@ export default class TodayInHistoryList extends React.Component {
         let {topic} = this.state;
         let {handleSelect} = this.props;
         let topicList = topic && topic !== "--" ? this.props[topic.toLowerCase()].map((item, i) => (
-        <li key={i + "A"} >
+        <li className="trivia" key={i + "A"} >
             <button onSelect={() => handleSelect(item)}>Save</button>
             <p>{item}</p>
         </li>
@@ -32,14 +32,12 @@ export default class TodayInHistoryList extends React.Component {
             <label onClick={() => this._handleToggle(text)} htmlFor={text}>{text}</label>
         </li>
         ));
-        let topicHeader = topic && topic !== "--" ? topic : "";
 
         return (
             <div id="today">
                 <ul className='radioToolbar'>
                     {optionsList}
                 </ul>
-                <h2>{topicHeader}</h2>
                 <ul>
                     {topicList}
                 </ul>
