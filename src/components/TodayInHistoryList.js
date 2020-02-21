@@ -9,6 +9,12 @@ export default class TodayInHistoryList extends React.Component {
         }
     }
 
+    componentDidMount() {
+        if(!this.props.events) {
+            this.props.getTrivia();
+        }
+    }
+
     render() {
         // console.log(this.props);
         let {topic} = this.state;
