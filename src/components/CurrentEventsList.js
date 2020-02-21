@@ -9,6 +9,16 @@ export default class RecentSports extends React.Component {
         }
     }
 
+    componentDidMount() {
+        const {currentNews, sportsNews, getCurrentNews, getSportsNews} = this.props;
+        if(!currentNews.length) {
+            getCurrentNews();
+        }
+        if (!sportsNews.length) {
+            getSportsNews();
+        }
+    }
+
     render() {
         const {handleSelect} = this.props;
         const {topic} = this.state;

@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import { actionAddTrivia } from '../actions';
+import { actionAddTrivia, asyncActionGetSportsNews } from '../actions';
 import CurrentEventsList from '../components/CurrentEventsList';
 
 function mapStateToProps(state) {
@@ -11,7 +11,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        handleSelect: (text) => {dispatch(actionAddTrivia(text))}
+        handleSelect: (text) => {dispatch(actionAddTrivia(text))},
+        getCurrentNews: () => dispatch(asyncActionGetCurrentNews()),
+        getSportsNews: () => dispatch(asyncActionGetSportsNews())
     }
 }
 

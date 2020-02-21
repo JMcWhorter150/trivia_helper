@@ -10,7 +10,8 @@ export default class TodayInHistoryList extends React.Component {
     }
 
     componentDidMount() {
-        if(!this.props.events) {
+        if(!this.props.events.length) {
+            console.log('sending axios request for today in trivia')
             this.props.getTrivia();
         }
     }
