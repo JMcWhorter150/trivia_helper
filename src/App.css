@@ -147,7 +147,6 @@ li > a {
 }
 
 li > a:hover {
-  /* background-color: hsl(252, 60%, 90%); */
   text-decoration: underline;
 }
 
@@ -171,4 +170,16 @@ button:hover {
 li > button:focus {
   border-color: transparent;
   outline: none;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  body {
+    font-size: 14px;
+  }
 }

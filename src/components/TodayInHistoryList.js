@@ -38,6 +38,7 @@ export default class TodayInHistoryList extends React.Component {
                 <ul className='radioToolbar'>
                     {optionsList}
                 </ul>
+
                 <ul>
                     {topicList}
                 </ul>
