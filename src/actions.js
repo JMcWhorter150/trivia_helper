@@ -66,6 +66,13 @@ export function actionSetTriviaSports(sportsTrivia) {
     }
 }
 
+export function actionSetCurrentNews(currentNews) {
+    return {
+        action: SET_TRIVIA_CURRENTNEWS,
+        payload: currentNews
+    }
+}
+
 
 // async actions
 
@@ -116,5 +123,13 @@ export function asyncActionGetTriviaSports() {
         const url = `https://api.apify.com/v2/actor-tasks/J5K8SwHCw5kWjSdPb/runs/last/dataset/items?token=fkp2JJtBYnJvTCZWCDLuxDKRh`;
         const result = await axios.get(url);
         dispatch(actionSetTriviaSports(result.data[0].linkData));
+    }
+}
+
+export function asyncActionGetCurrentNews() {
+    return async (dispatch) => {
+        const url = `http://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=22d2ce8af8364c3e8c5e6691a95c33ed`;
+        const result = await axios.get(url);
+        dispatch(actionSetCurrentNews(result.data.articles));
     }
 }
