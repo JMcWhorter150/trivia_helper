@@ -20,7 +20,9 @@ export default function triviaReducer(state=defaultState, action) {
             window.localStorage.setItem(action.payload, action.payload);
             break;
         case DEL_TRIVIA:
-            newState.saved.splice(action.payload.id, 1);
+            const saved = [...newState.saved];
+            saved.splice(action.payload.id, 1);
+            newState.saved = saved;
             window.localStorage.removeItem(action.payload.text);
             break;
         case RESET_TRIVIA:
