@@ -43,9 +43,10 @@ export function actionGetTriviaBirthsDeathsEvents(obj) {
 
 export function asyncActionGetTriviaBirthsDeathsEvents() {
     return async (dispatch) => {
+            const date = new Date();
             const monthNames = ["January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"]; // used in the next line to turn getMonth into string
-            const todayTitle = monthNames[this.state.date.getMonth()] + " " + this.state.date.getDate(); // returns "February 19" or "March 1"
+            const todayTitle = monthNames[date.getMonth()] + " " + date.getDate(); // returns "February 19" or "March 1"
             const url = `https://en.wikipedia.org/w/api.php?origin=*&format=json&action=query&prop=extracts&titles=${todayTitle}`;
             const result = await axios.get(url);
             const pageId = Object.keys(result.data.query.pages)[0]; // gets the key value for pageId, which is needed to grab the necessary data
