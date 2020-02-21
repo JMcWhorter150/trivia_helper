@@ -5,7 +5,8 @@ export default class TodayInHistoryList extends React.Component {
         super(props);
 
         this.state = {
-            topic: ""
+            topic: "",
+            optionsList: ['Events', 'Births', 'Deaths', 'Film', 'Music', 'Sports']
         }
     }
 
@@ -19,16 +20,25 @@ export default class TodayInHistoryList extends React.Component {
         // console.log(this.props);
         let {topic} = this.state;
         let {handleSelect} = this.props;
-        let topicList = topic && topic !== "--" ? this.props[topic.toLowerCase()].map((item, i) => <li key={i + "A"} ><button onClick={() => handleSelect(item)}>Save</button><p>{item}</p></li>) : "";
-        let optionsList = ['--', 'Events', 'Births', 'Deaths', 'Film', 'Music', 'Sports'].map((text, i) => <option value={text} key={i+"C"}>{text}</option>); // update if new trivia topics are added
+        let topicList = topic && topic !== "--" ? this.props[topic.toLowerCase()].map((item, i) => (
+        <li key={i + "A"} >
+            <button onSelect={() => handleSelect(item)}>Save</button>
+            <p>{item}</p>
+        </li>
+        )) : "";
+        let optionsList = this.state.optionsList.map((text, i) => (
+        <li key={i+"C"}>
+            <input type="radio" id={text} name="triviaType" value={text} />
+            <label onClick={() => this._handleToggle(text)} htmlFor={text}>{text}</label>
+        </li>
+        ));
         let topicHeader = topic && topic !== "--" ? topic : "";
 
         return (
             <div id="today">
-                <label htmlFor="triviaTopic">Select a trivia topic:</label>
-                <select onChange={event => this._handleToggle(event.target.value)} id="triviaTopic">
+                <ul className='radioToolbar'>
                     {optionsList}
-                </select>
+                </ul>
                 <h2>{topicHeader}</h2>
                 <ul>
                     {topicList}

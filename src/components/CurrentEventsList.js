@@ -5,7 +5,8 @@ export default class RecentSports extends React.Component {
         super(props);
 
         this.state = {
-            topic: ""
+            topic: "",
+            optionsList: ['currentNews', 'sportsNews']
         }
     }
 
@@ -29,16 +30,22 @@ export default class RecentSports extends React.Component {
             </li>
         )) : "";
 
+        let optionsList = this.state.optionsList.map((text, i) => {
+            let displayText = text === "sportsNews" ? "Sports" : text === "currentNews" ? "U.S." : "";
+            return (
+                <li key={i+"C"}>
+                    <input type="radio" id={text} name="triviaType" value={text} />
+                    <label onClick={() => this._handleToggle(text)} htmlFor={text}>{displayText}</label>
+                </li>
+            )});
+
         const topicHeading = topic === "sportsNews" ? "Sports" : topic === "currentNews" ? "U.S." : ""; // converts sportsNews to Sports and currentNews to U.S.
 
         return (
-            <div id='news'>
-                <label htmlFor="newsTopic">Select News:</label>
-                <select onChange={event => this._handleToggle(event.target.value)} id="newsTopic">
-                    <option value="">--</option>
-                    <option value="currentNews">U.S.</option>
-                    <option value="sportsNews">Sports</option>
-                </select>
+            <div id="news">
+                <ul className="radioToolbar">
+                    {optionsList}
+                </ul>
 
                 <h2>{topicHeading}</h2>
                 <ul>

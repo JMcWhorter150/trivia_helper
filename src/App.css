@@ -84,6 +84,37 @@ html {
   background-color: hsla(0, 0%, 4%, .5);
 }
 
+.radioToolbar {
+  display: flex;
+  padding-left: 20px;
+}
+
+.radioToolbar input[type='radio'] {
+  opacity: 0;
+  position: fixed;
+}
+
+.radioToolbar label{
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: hsl(252, 5%, 90%);
+  border-radius: 2px;
+}
+
+.radioToolbar input[type="radio"]:checked + label {
+  background-color:hsl(252, 100%, 50%);
+  color: white;
+}
+
+.radioToolbar label:hover {
+  background-color: hsl(252, 60%, 90%);
+}
+
+.radioToolbar > li {
+  margin-right: 20px;
+}
+
 ul {
   padding: 0;
   list-style: none;
@@ -104,7 +135,7 @@ li > a {
 }
 
 li > a:hover {
-  background-color: hsl(252, 8%, 89%);
+  background-color: hsl(252, 60%, 90%);
 }
 
 li > p, li > a {
@@ -116,7 +147,7 @@ p {
 }
 
 button {
-  background-color: hsl(252, 8%, 90%);
+  background-color: hsl(252, 5%, 90%);
   border-style: none;
   border-radius: 1px;
   height: 20px;
@@ -125,7 +156,7 @@ button {
 }
 
 button:hover {
-  background-color: white;
+  background-color: hsl(252, 60%, 90%);
 }
 
 li > button:focus {
