@@ -59,6 +59,13 @@ export function actionSetTriviaMusic(musicTrivia) {
     }
 }
 
+export function actionSetTriviaSports(sportsTrivia) {
+    return {
+        action: SET_TRIVIA_SPORTS,
+        payload: sportsTrivia
+    }
+}
+
 
 // async actions
 
@@ -104,3 +111,10 @@ export function asyncActionGetTriviaMusic() {
     }
 }
 
+export function asyncActionGetTriviaSports() {
+    return async (dispatch) => {
+        const url = `https://api.apify.com/v2/actor-tasks/J5K8SwHCw5kWjSdPb/runs/last/dataset/items?token=fkp2JJtBYnJvTCZWCDLuxDKRh`;
+        const result = await axios.get(url);
+        dispatch(actionSetTriviaSports(result.data[0].linkData));
+    }
+}

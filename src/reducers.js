@@ -38,6 +38,9 @@ export default function triviaReducer(state=defaultState, action) {
         case SET_TRIVIA_MUSIC:
             newState.music = action.payload;
             break;
+        case SET_TRIVIA_SPORTS:
+            newState.sports = action.payload;
+            break;
         default:
             break;
     }
