@@ -23,7 +23,7 @@ html {
   display: flex;
   flex-direction: column;
   background-color: hsl(252, 100%, 50%);
-  color: hsl(252, 8%, 90%);
+  color: white;
   font-weight: 600;
 }
 
@@ -49,7 +49,7 @@ html {
 .pictureFrame > img {
   height: 100%;
   width: auto;
-  color: white;
+  filter: brightness(0) invert(1);
 }
 
 #home, #saved, #today, #news {
