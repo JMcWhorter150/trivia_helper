@@ -12,9 +12,11 @@ export default class RecentSports extends React.Component {
     componentDidMount() {
         const {currentNews, sportsNews, getCurrentNews, getSportsNews} = this.props;
         if(!currentNews.length) {
+            console.log('getting current news');
             getCurrentNews();
         }
         if (!sportsNews.length) {
+            console.log('getting sports news');
             getSportsNews();
         }
     }

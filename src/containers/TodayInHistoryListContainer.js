@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import { actionAddTrivia, asyncActionGetTriviaBirthsDeathsEvents, asyncActionGetTriviaFilm, asyncActionGetTriviaMusic, asyncActionGetTriviaSports } from '../actions';
+import { actionSaveTrivia, asyncActionGetTriviaBirthsDeathsEvents, asyncActionGetTriviaFilm, asyncActionGetTriviaMusic, asyncActionGetTriviaSports } from '../actions';
 import TodayInHistoryList from '../components/TodayInHistoryList';
 
 function mapStateToProps(state) {
@@ -15,7 +15,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        handleSelect: (text) => dispatch(actionAddTrivia(text)),
+        handleSelect: (text) => dispatch(actionSaveTrivia(text)),
         getTrivia: () => {
             dispatch(asyncActionGetTriviaBirthsDeathsEvents());
             dispatch(asyncActionGetTriviaFilm());

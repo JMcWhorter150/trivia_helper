@@ -3,12 +3,12 @@ import axios from 'axios';
 export const SAVE_TRIVIA = 'ADD_TRIVIA';
 export const DEL_TRIVIA = 'DEL_TRIVIA';
 export const RESET_TRIVIA = 'RESET_TRIVIA';
-export const SET_TRIVIA_BIRTHS_DEATHS_EVENTS = 'GET_TRIVIA_BIRTHS_DEATHS_EVENTS';
-export const SET_TRIVIA_FILM = 'GET_TRIVIA_FILM';
-export const SET_TRIVIA_MUSIC = 'GET_TRIVIA_MUSIC';
-export const SET_TRIVIA_SPORTS = 'GET_TRIVIA_SPORTS';
-export const SET_TRIVIA_CURRENTNEWS = 'GET_TRIVIA_CURRENTNEWS';
-export const SET_TRIVIA_SPORTSNEWS = 'GET_TRIVIA_SPORTSNEWS';
+export const SET_TRIVIA_BIRTHS_DEATHS_EVENTS = 'SET_TRIVIA_BIRTHS_DEATHS_EVENTS';
+export const SET_TRIVIA_FILM = 'SET_TRIVIA_FILM';
+export const SET_TRIVIA_MUSIC = 'SET_TRIVIA_MUSIC';
+export const SET_TRIVIA_SPORTS = 'SET_TRIVIA_SPORTS';
+export const SET_TRIVIA_CURRENTNEWS = 'SET_TRIVIA_CURRENTNEWS';
+export const SET_TRIVIA_SPORTSNEWS = 'SET_TRIVIA_SPORTSNEWS';
 
 
 // saved trivia actions
@@ -47,35 +47,35 @@ export function actionSetTriviaBirthsDeathsEvents(obj) {
 
 export function actionSetTriviaFilm(filmTrivia) {
     return {
-        action: SET_TRIVIA_FILM,
+        type: SET_TRIVIA_FILM,
         payload: filmTrivia
     }
 }
 
 export function actionSetTriviaMusic(musicTrivia) {
     return {
-        action: SET_TRIVIA_MUSIC,
+        type: SET_TRIVIA_MUSIC,
         payload: musicTrivia
     }
 }
 
 export function actionSetTriviaSports(sportsTrivia) {
     return {
-        action: SET_TRIVIA_SPORTS,
+        type: SET_TRIVIA_SPORTS,
         payload: sportsTrivia
     }
 }
 
 export function actionSetCurrentNews(currentNews) {
     return {
-        action: SET_TRIVIA_CURRENTNEWS,
+        type: SET_TRIVIA_CURRENTNEWS,
         payload: currentNews
     }
 }
 
 export function actionSetSportsNews(sportsNews) {
     return {
-        action: SET_TRIVIA_SPORTSNEWS,
+        type: SET_TRIVIA_SPORTSNEWS,
         payload: sportsNews
     }
 }
@@ -101,7 +101,7 @@ export function asyncActionGetTriviaBirthsDeathsEvents() {
                 currentArr = currentArr.slice(0, currentArr.length - 2); // gets rid of blank items
                 todaysData[i] = currentArr; // makes sure that the array is assigned the correct value (reference vs true types)
             }
-            dispatch(actionGetTriviaBirthsDeathsEvents({
+            dispatch(actionSetTriviaBirthsDeathsEvents({
                 events: todaysData[0],
                 births: todaysData[1],
                 deaths: todaysData[2]
