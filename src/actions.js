@@ -3,13 +3,15 @@ import axios from 'axios';
 export const SAVE_TRIVIA = 'ADD_TRIVIA';
 export const DEL_TRIVIA = 'DEL_TRIVIA';
 export const RESET_TRIVIA = 'RESET_TRIVIA';
-export const GET_TRIVIA_BIRTHS_DEATHS_EVENTS = 'GET_TRIVIA_BIRTHS_DEATHS_EVENTS';
-export const GET_TRIVIA_FILM = 'GET_TRIVIA_FILM';
-export const GET_TRIVIA_MUSIC = 'GET_TRIVIA_MUSIC';
-export const GET_TRIVIA_SPORTS = 'GET_TRIVIA_SPORTS';
-export const GET_TRIVIA_CURRENTNEWS = 'GET_TRIVIA_CURRENTNEWS';
-export const GET_TRIVIA_SPORTSNEWS = 'GET_TRIVIA_SPORTSNEWS';
+export const SET_TRIVIA_BIRTHS_DEATHS_EVENTS = 'GET_TRIVIA_BIRTHS_DEATHS_EVENTS';
+export const SET_TRIVIA_FILM = 'GET_TRIVIA_FILM';
+export const SET_TRIVIA_MUSIC = 'GET_TRIVIA_MUSIC';
+export const SET_TRIVIA_SPORTS = 'GET_TRIVIA_SPORTS';
+export const SET_TRIVIA_CURRENTNEWS = 'GET_TRIVIA_CURRENTNEWS';
+export const SET_TRIVIA_SPORTSNEWS = 'GET_TRIVIA_SPORTSNEWS';
 
+
+// saved trivia actions
 export function actionSaveTrivia(trivia) {
     return {
         type: SAVE_TRIVIA,
@@ -30,9 +32,11 @@ export function actionResetTrivia() {
     }
 }
 
-export function actionGetTriviaBirthsDeathsEvents(obj) {
+
+// set trivia actions
+export function actionSetTriviaBirthsDeathsEvents(obj) {
     return {
-        type: GET_TRIVIA_BIRTHS_DEATHS_EVENTS,
+        type: SET_TRIVIA_BIRTHS_DEATHS_EVENTS,
         payload: {
             births: obj.births,
             deaths: obj.deaths,
@@ -40,6 +44,23 @@ export function actionGetTriviaBirthsDeathsEvents(obj) {
         }
     }
 }
+
+export function actionSetTriviaFilm(filmTrivia) {
+    return {
+        action: SET_TRIVIA_FILM,
+        payload: filmTrivia
+    }
+}
+
+export function actionSetTriviaMusic(musicTrivia) {
+    return {
+        action: SET_TRIVIA_MUSIC,
+        payload: musicTrivia
+    }
+}
+
+
+// async actions
 
 export function asyncActionGetTriviaBirthsDeathsEvents() {
     return async (dispatch) => {
@@ -67,4 +88,19 @@ export function asyncActionGetTriviaBirthsDeathsEvents() {
     }
 }
 
+export function asyncActionGetTriviaFilm() {
+    return async (dispatch) => {
+        const url = `https://api.apify.com/v2/actor-tasks/NHADsLTRDGnTZJhPu/runs/last/dataset/items?token=fkp2JJtBYnJvTCZWCDLuxDKRh`;
+        const result = await axios.get(url);
+        dispatch(actionSetTriviaFilm(result.data[0].linkData));
+    }
+}
+
+export function asyncActionGetTriviaMusic() {
+    return async (dispatch) => {
+        const url = `https://api.apify.com/v2/actor-tasks/QjL2MXmqzG6zHXaGr/runs/last/dataset/items?token=fkp2JJtBYnJvTCZWCDLuxDKRh`;
+        const result = await axios.get(url);
+        dispatch(actionSetTriviaMusic(result.data[0].musicData));
+    }
+}
 
