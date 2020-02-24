@@ -61,6 +61,7 @@ export default class RecentSports extends React.Component {
                 <ul>
                     {newsList}
                 </ul>
+                {newsList.length > 0 ? <footer>Powered by NewsApi.Org</footer> : ""}
             </div>
         )
     }
