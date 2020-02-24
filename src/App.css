@@ -135,8 +135,6 @@ ul {
   background-color: hsl(252, 5%, 99%);
 }​
 
-
-
 li > p, li > a {
   margin-left: 8px;
 }
@@ -170,6 +168,16 @@ button:hover {
 li > button:focus {
   border-color: transparent;
   outline: none;
+}
+
+.Saved {
+  background-color:hsl(252, 100%, 50%);
+  color: white;
+}
+
+.Save {
+  width: 52px;
+  max-width: 52px;
 }
 
 @media only screen and (max-width: 768px) {

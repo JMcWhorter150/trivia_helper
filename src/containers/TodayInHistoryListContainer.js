@@ -16,7 +16,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        handleSelect: (text) => dispatch(actionSaveTrivia(text)),
+        handleSelect: (text) => {
+            console.log('saving text')
+            dispatch(actionSaveTrivia(text))},
         getTrivia: () => {
             dispatch(asyncActionGetTriviaBirthsDeathsEvents());
             dispatch(asyncActionGetTriviaFilm());

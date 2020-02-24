@@ -6,7 +6,18 @@ export default class TodayInHistoryList extends React.Component {
 
         this.state = {
             topic: "",
-            optionsList: ['Events', 'Births', 'Deaths', 'Film', 'Music', 'Sports']
+            optionsList: ['Events', 'Births', 'Deaths', 'Film', 'Music', 'Sports'],
+            saved: [...this.props.saved]
+        }
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        if (props.saved !== state.saved) {
+            return {
+                saved: props.saved
+            }
+        } else {
+            return state;
         }
     }
 
@@ -20,12 +31,14 @@ export default class TodayInHistoryList extends React.Component {
         // console.log(this.props);
         let {topic} = this.state;
         let {handleSelect, saved} = this.props;
-        let topicList = topic && topic !== "--" ? this.props[topic.toLowerCase()].map((item, i) => (
-        <li className="trivia" key={i + "A"} >
-            <button onSelect={() => handleSelect(item)}>{saved.includes(item) ? "Saved": "Save"}</button>
-            <p>{item}</p>
-        </li>
-        )) : "";
+        let topicList = topic && topic !== "--" ? this.props[topic.toLowerCase()].map((item, i) => {
+            let buttonText = saved.includes(item) ? "Saved" : "Save";
+            return (
+                <li className="trivia" key={i + "A"} >
+                    <button className={buttonText} onClick={() => {handleSelect(item); this._updateSaved(item)}}>{buttonText}</button>
+                    <p>{item}</p>
+                </li>
+        )}) : "";
         let optionsList = this.state.optionsList.map((text, i) => (
         <li key={i+"C"}>
             <input type="radio" id={text} name="triviaType" value={text} />
@@ -49,6 +62,12 @@ export default class TodayInHistoryList extends React.Component {
     _handleToggle = (text) => {
         this.setState({
             topic: text
+        })
+    }
+
+    _updateSaved = (text) => {
+        this.setState({
+            saved: [...this.state.saved, text]
         })
     }
 }
