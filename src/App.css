@@ -175,19 +175,78 @@ li > button:focus {
   color: white;
 }
 
-.Save {
-  width: 52px;
-  max-width: 52px;
+.Saved:hover {
+  background-color: hsl(252, 100%, 50%);
+}
+
+.Save, .Saved {
+  max-width: 55px;
+  min-width: 55px;
 }
 
 @media only screen and (max-width: 768px) {
-  body {
-    font-size: 12px;
-  }
-}
 
-@media only screen and (max-width: 1200px) {
-  body {
-    font-size: 14px;
+  #nav {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 96px;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(252, 100%, 50%);
+    color: white;
+    font-weight: 600;
+  }
+  
+  #nav > * {
+    padding: auto 16px auto;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  #nav > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #nav > a:hover {
+    border-top: 4px solid hsl(0, 0%, 96%);
+    border-left: none;
+  }
+
+  html {
+    margin-top: 96px;
+    margin-left: 0px;
+    background-color: hsl(252, 0%, 100%);
+    color: hsl(0, 15%, 6%);
+  }
+
+  #home {
+    height: calc(100vh - 96px);
+  }
+
+  #home p {
+    margin: 24px 0 12px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .radioToolbar {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .radioToolbar label {
+    margin: 12px 0 0 0;
   }
 }
