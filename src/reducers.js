@@ -18,9 +18,13 @@ export default function triviaReducer(state=defaultState, action) {
 
     switch(action.type) {
         case SAVE_TRIVIA:
-            newState.saved.push(action.payload);
-            window.localStorage.setItem(action.payload, action.payload);
-            break;
+            if (newState.saved.includes(action.payload)) {
+                break;
+            } else {
+                newState.saved.push(action.payload);
+                window.localStorage.setItem(action.payload, action.payload);
+                break;
+            }
         case DEL_TRIVIA:
             const saved = [...newState.saved];
             saved.splice(action.payload.id, 1);

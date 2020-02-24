@@ -12,7 +12,7 @@ export const SET_TRIVIA_SPORTSNEWS = 'SET_TRIVIA_SPORTSNEWS';
 export const SET_QUESTION_ANSWER = 'SET_QUESTION_ANSWER';
 
 
-// saved trivia actions
+// save trivia actions
 export function actionSaveTrivia(trivia) {
     return {
         type: SAVE_TRIVIA,

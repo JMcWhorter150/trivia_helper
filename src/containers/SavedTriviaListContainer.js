@@ -12,8 +12,6 @@ function mapDispatchToProps(dispatch) {
     return {
         handleDelete: (id, text) => {
             dispatch(actionDelTrivia(id, text));
-            console.log(id);
-            console.log(text);
         },
         handleReset: () => dispatch(actionResetTrivia())
     }

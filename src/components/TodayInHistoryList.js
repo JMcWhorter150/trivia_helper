@@ -28,7 +28,6 @@ export default class TodayInHistoryList extends React.Component {
     }
 
     render() {
-        // console.log(this.props);
         let {topic} = this.state;
         let {handleSelect, saved} = this.props;
         let topicList = topic && topic !== "--" ? this.props[topic.toLowerCase()].map((item, i) => {
