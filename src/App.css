@@ -184,7 +184,7 @@ li > button:focus {
   min-width: 55px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-device-width: 768px) {
 
   #nav {
     margin: 0;
