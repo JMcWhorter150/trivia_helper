@@ -19,10 +19,10 @@ export default class TodayInHistoryList extends React.Component {
     render() {
         // console.log(this.props);
         let {topic} = this.state;
-        let {handleSelect} = this.props;
+        let {handleSelect, saved} = this.props;
         let topicList = topic && topic !== "--" ? this.props[topic.toLowerCase()].map((item, i) => (
         <li className="trivia" key={i + "A"} >
-            <button onSelect={() => handleSelect(item)}>Save</button>
+            <button onSelect={() => handleSelect(item)}>{saved.includes(item) ? "Saved": "Save"}</button>
             <p>{item}</p>
         </li>
         )) : "";

@@ -1,4 +1,4 @@
-import {SAVE_TRIVIA, DEL_TRIVIA, RESET_TRIVIA, SET_TRIVIA_BIRTHS_DEATHS_EVENTS, SET_TRIVIA_FILM, SET_TRIVIA_MUSIC, SET_TRIVIA_SPORTSNEWS, SET_TRIVIA_SPORTS, SET_TRIVIA_CURRENTNEWS } from './actions';
+import {SAVE_TRIVIA, DEL_TRIVIA, RESET_TRIVIA, SET_TRIVIA_BIRTHS_DEATHS_EVENTS, SET_TRIVIA_FILM, SET_TRIVIA_MUSIC, SET_TRIVIA_SPORTSNEWS, SET_TRIVIA_SPORTS, SET_TRIVIA_CURRENTNEWS, SET_QUESTION_ANSWER } from './actions';
 const defaultState = {
     saved: Object.keys(window.localStorage).map(item => window.localStorage.getItem(item)).sort(),
     events: [],
@@ -8,7 +8,9 @@ const defaultState = {
     music: [],
     sports: [],
     currentNews: [],
-    sportsNews: []
+    sportsNews: [],
+    randomQuestion: "",
+    randomAnswer: ""
 };
 
 export default function triviaReducer(state=defaultState, action) {
@@ -48,6 +50,10 @@ export default function triviaReducer(state=defaultState, action) {
             break;
         case SET_TRIVIA_CURRENTNEWS:
             newState.currentNews = action.payload;
+            break;
+        case SET_QUESTION_ANSWER:
+            newState.randomQuestion = action.payload[0];
+            newState.randomAnswer = action.payload[1];
             break;
         default:
             break;

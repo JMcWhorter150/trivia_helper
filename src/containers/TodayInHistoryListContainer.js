@@ -9,7 +9,8 @@ function mapStateToProps(state) {
         deaths: state.deaths,
         film: state.film,
         music: state.music,
-        sports: state.sports
+        sports: state.sports,
+        saved: state.saved
     }
 }
 

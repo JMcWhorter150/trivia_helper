@@ -11,7 +11,7 @@ import TodayInHistoryList from './containers/TodayInHistoryListContainer';
 import SavedTriviaList from './containers/SavedTriviaListContainer';
 import CurrentEventsList from './containers/CurrentEventsListContainer';
 import Nav from './components/Nav';
-import Home from './components/Home';
+import Home from './containers/HomeContainer';
 
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

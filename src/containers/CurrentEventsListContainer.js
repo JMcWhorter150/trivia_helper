@@ -5,7 +5,8 @@ import CurrentEventsList from '../components/CurrentEventsList';
 function mapStateToProps(state) {
     return {
         currentNews: state.currentNews,
-        sportsNews: state.sportsNews
+        sportsNews: state.sportsNews,
+        saved: state.saved
     }
 }
 

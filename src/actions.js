@@ -9,6 +9,7 @@ export const SET_TRIVIA_MUSIC = 'SET_TRIVIA_MUSIC';
 export const SET_TRIVIA_SPORTS = 'SET_TRIVIA_SPORTS';
 export const SET_TRIVIA_CURRENTNEWS = 'SET_TRIVIA_CURRENTNEWS';
 export const SET_TRIVIA_SPORTSNEWS = 'SET_TRIVIA_SPORTSNEWS';
+export const SET_QUESTION_ANSWER = 'SET_QUESTION_ANSWER';
 
 
 // saved trivia actions
@@ -80,6 +81,13 @@ export function actionSetSportsNews(sportsNews) {
     }
 }
 
+export function actionSetQuestionAnswer(arr) {
+    return {
+        type: SET_QUESTION_ANSWER,
+        payload: arr
+    }
+}
+
 
 // async actions
 
@@ -146,5 +154,13 @@ export function asyncActionGetSportsNews() {
         const url = `http://newsapi.org/v2/top-headlines?country=us&apiKey=22d2ce8af8364c3e8c5e6691a95c33ed`;
         const result = await axios.get(url);
         dispatch(actionSetSportsNews(result.data.articles));
+    }
+}
+
+export function asyncActionGetQuestionAnswer() {
+    return async (dispatch) => {
+        const url = `https://api.apify.com/v2/actor-tasks/7GCxpRZuB3myEffh6/runs/last/dataset/items?token=fkp2JJtBYnJvTCZWCDLuxDKRh`;
+        const result = await axios.get(url);
+        dispatch(actionSetQuestionAnswer([result.data[0].question[0], result.data[0].answer[0]]))
     }
 }
